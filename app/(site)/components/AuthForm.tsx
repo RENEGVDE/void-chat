@@ -7,6 +7,8 @@ import Button from "@/app/components/Button";
 import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import axios from "axios";
+import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -38,9 +40,25 @@ const AuthForm = () => {
     setIsLoading(true);
     try {
       if (variant === "LOGIN") {
-        axios.post("/api/login", data);
+        signIn("credentials", {
+          ...data,
+          redirect: false,
+        })
+          .then((res) => {
+            if (res && res.error) {
+              toast.error("Invalid credentials");
+            }
+
+            if (res && res.ok && !res.error) {
+              toast.success("Logged in successfully");
+            }
+          })
+          .finally(() => setIsLoading(false));
       } else {
-        axios.post("/api/register", data);
+        axios
+          .post("/api/register", data)
+          .catch(() => toast.error("Username or email already exists"))
+          .finally(() => setIsLoading(false));
       }
     } catch (error) {
       console.error(error);
@@ -52,7 +70,19 @@ const AuthForm = () => {
   const socialAction = (action: string) => {
     setIsLoading(true);
 
-    //social sign in
+    signIn(action, {
+      redirect: false,
+    })
+      .then((res) => {
+        if (res && res.error) {
+          toast.error("Something went wrong");
+        }
+
+        if (res && res.ok && !res.error) {
+          toast.success("Logged in successfully");
+        }
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (

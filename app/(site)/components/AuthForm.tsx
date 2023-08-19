@@ -6,6 +6,7 @@ import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
 import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle } from "react-icons/bs";
+import axios from "axios";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -27,7 +28,7 @@ const AuthForm = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      username: "",
+      name: "",
       password: "",
       email: "",
     },
@@ -37,9 +38,9 @@ const AuthForm = () => {
     setIsLoading(true);
     try {
       if (variant === "LOGIN") {
-        // login
+        axios.post("/api/login", data);
       } else {
-        // register
+        axios.post("/api/register", data);
       }
     } catch (error) {
       console.error(error);
@@ -74,7 +75,7 @@ const AuthForm = () => {
               errors={errors}
               required
               id="name"
-              label="Name"
+              label="Username"
             />
           )}
           <Input

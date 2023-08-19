@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+      <label htmlFor={id} className="block text-sm font-medium text-slate-400">
         {label}
       </label>
       <div className="mt-1">
@@ -36,21 +36,23 @@ const Input: React.FC<InputProps> = ({
           autoComplete={id}
           className={clsx(
             `
+          bg-slate-300 
           form-input
           block
           w-full
           rounded-md
           border-0
           py-1.5
-          text-gray-900
+          text-slate-900
           shadow-sm
           rind-1
           ring-inset
-          ring-gray-300
-          placeholder:text-gray-400
+          ring-slate-300
+          placeholder:text-slate-200
           focus:ring-2
           focus:ring-inset
-          focus:ring-sky-600
+          focus:ring-slate-100
+          focus:bg-slate-100
           sm:text-sm
           sm:leading-6`,
             errors[id] && "focus:ring-red-500",

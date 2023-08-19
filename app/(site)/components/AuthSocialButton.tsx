@@ -17,15 +17,16 @@ const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
   w-full 
   justify-center 
   rounded-md 
-  bg-white 
+  bg-slate-600 
   px-4 
   py-2 
-  text-gray-500 
+  text-slate-200 
   shadow-sm 
   ring-1 
   ring-inset 
-  ring-gray-300 
-  hover:bg-gray-50 
+  ring-slate-600 
+  hover:bg-slate-400 
+  hover:text-slate-200 
   focus:outline-offset-0
 "
     >

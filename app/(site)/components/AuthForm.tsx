@@ -87,16 +87,7 @@ const AuthForm = () => {
 
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div
-        className="
-        bg-white
-          px-4
-          py-8
-          shadow
-          sm:rounded-lg
-          sm:px-10
-        "
-      >
+      <div className="bg-slate-800 px-4 py-8 shadow sm:rounded-lg sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
             <Input
@@ -135,11 +126,11 @@ const AuthForm = () => {
 
         <div className="mt-6">
           <div className="relative">
-            <div className="absolute inset-0 flex items-center ">
-              <div className="w-full border-t border-gray-300" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-slate-200" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-2 text-gray-500">
+              <span className="bg-slate-800 px-2 text-slate-200">
                 Or continue with
               </span>
             </div>
@@ -156,13 +147,16 @@ const AuthForm = () => {
             />
           </div>
         </div>
-        <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
+        <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-slate-200">
           <div>
             {variant === "LOGIN"
               ? "Don't have an account?"
               : "Already have an account?"}
           </div>
-          <div onClick={toggleVariant} className="underline cursor-pointer">
+          <div
+            onClick={toggleVariant}
+            className="underline cursor-pointer text-slate-400 hover:text-slate-200"
+          >
             {variant === "LOGIN" ? "Sign up" : "Sign in"}
           </div>
         </div>

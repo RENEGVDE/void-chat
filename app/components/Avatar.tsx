@@ -16,21 +16,27 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
     <div className="relative">
       <div
         className="
-        relative 
-        inline-block 
-        rounded-full 
+        relative
+        inline-block
+        rounded-full
         overflow-hidden
-        h-9 
-        w-9 
-        md:h-11 
+        h-9
+        w-9
+        md:h-11
         md:w-11
       "
       >
-        <Image
-          fill
-          src={user?.image || "/assets/placeholder.jpg"}
-          alt="Avatar"
-        />
+        {user?.image ? (
+          <Image
+            fill
+            src={user?.image || "/assets/placeholder.jpg"}
+            alt="Avatar"
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-4xl bg-gray-200">
+            <div>{user?.name?.toString().charAt(0)}</div>
+          </div>
+        )}
       </div>
       {isActive ? (
         <span

@@ -33,8 +33,8 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
             alt="Avatar"
           />
         ) : (
-          <div className="flex items-center justify-center h-full text-4xl bg-gray-200">
-            <div>{user?.name?.toString().charAt(0)}</div>
+          <div className="flex items-center justify-center h-full text-4xl bg-gray-400">
+            {user?.name?.toString().toUpperCase().charAt(0)}
           </div>
         )}
       </div>

@@ -6,10 +6,9 @@ import { Conversation, Message, User } from "@prisma/client";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import clsx from "clsx";
-
 import Avatar from "@/app/components/Avatar";
 import useOtherUser from "@/app/hooks/useOtherUser";
-// import AvatarGroup from "@/app/components/AvatarGroup";
+import AvatarGroup from "@/app/components/AvatarGroup";
 import { FullConversationType } from "@/app/types";
 
 interface ConversationBoxProps {
@@ -85,11 +84,11 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         selected ? "bg-neutral-100" : "bg-white"
       )}
     >
-      {/* {data.isGroup ? (
+      {data.isGroup ? (
         <AvatarGroup users={data.users} />
-      ) : ( */}
-      <Avatar user={otherUser} />
-      {/* )} */}
+      ) : (
+        <Avatar user={otherUser} />
+      )}
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />

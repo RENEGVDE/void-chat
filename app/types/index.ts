@@ -9,8 +9,3 @@ export type FullConversationType = Conversation & {
   users: User[];
   messages: FullMessageType[];
 };
-
-export type ConversationType = Conversation & {
-  users: User[];
-  messages: Message[];
-};

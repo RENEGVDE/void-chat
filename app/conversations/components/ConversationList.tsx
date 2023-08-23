@@ -7,7 +7,6 @@ import { useEffect, useMemo, useState } from "react";
 import { MdOutlineGroupAdd } from "react-icons/md";
 import clsx from "clsx";
 import { find, uniq } from "lodash";
-
 import useConversation from "@/app/hooks/useConversation";
 import { pusherClient } from "@/app/libs/pusher";
 import GroupChatModal from "@/app/components/modals/GroupChatModal";
@@ -25,6 +24,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
   users,
 }) => {
   const [items, setItems] = useState(initialItems);
+  console.log(initialItems);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const router = useRouter();
@@ -72,12 +72,23 @@ const ConversationList: React.FC<ConversationListProps> = ({
       setItems((current) => {
         return [...current.filter((convo) => convo.id !== conversation.id)];
       });
+
+      if (conversationId !== conversation.id) {
+        router.push("/conversations");
+      }
     };
 
     pusherClient.bind("conversation:update", updateHandler);
     pusherClient.bind("conversation:new", newHandler);
     pusherClient.bind("conversation:remove", removeHandler);
-  }, [pusherKey, router]);
+
+    return () => {
+      pusherClient.unsubscribe(pusherKey);
+      pusherClient.unbind("conversation:update", updateHandler);
+      pusherClient.unbind("conversation:new", newHandler);
+      pusherClient.unbind("conversation:remove", removeHandler);
+    };
+  }, [pusherKey, router, conversationId]);
 
   return (
     <>

@@ -20,13 +20,13 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
         lg:block
         overflow-y-auto 
         border-r 
-        border-gray-200
+        border-gray-100
         block w-full left-0
       "
     >
       <div className="px-5">
         <div className="flex-col">
-          <div className="text-2xl font-bold text-neutral-800 py-4">People</div>
+          <div className="text-2xl font-bold text-gray-100 py-4">People</div>
         </div>
         {items.map((item) => (
           <UserBox key={item.id} data={item} />

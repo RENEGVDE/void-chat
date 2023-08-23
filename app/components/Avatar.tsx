@@ -33,7 +33,7 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
             alt="Avatar"
           />
         ) : (
-          <div className="flex items-center justify-center h-full text-4xl bg-gray-400">
+          <div className="flex items-center justify-center h-full text-4xl bg-neutral-600">
             {user?.name?.toString().toUpperCase().charAt(0)}
           </div>
         )}
@@ -45,8 +45,6 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
             block 
             rounded-full 
             bg-green-500 
-            ring-2 
-            ring-white 
             top-0 
             right-0
             h-2 

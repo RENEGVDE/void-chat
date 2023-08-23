@@ -27,11 +27,11 @@ const MessageInput: React.FC<MessageInputProps> = ({
         {...register(id, { required })}
         placeholder={placeholder}
         className="
-          text-black
+          text-white
           font-light
           py-2
           px-4
-          bg-neutral-100 
+          bg-neutral-800 
           w-full 
           rounded-full
           focus:outline-none

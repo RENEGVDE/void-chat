@@ -38,7 +38,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({ users = [] }) => {
               alt="Avatar"
             />
           ) : (
-            <div className="flex items-center justify-center h-full text-4xl bg-gray-400">
+            <div className="flex items-center justify-center h-full text-4xl bg-neutral-600">
               {user?.name?.toString().toUpperCase().charAt(0)}
             </div>
           )}

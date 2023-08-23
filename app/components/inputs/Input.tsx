@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
           autoComplete={id}
           className={clsx(
             `
-          bg-slate-300 
+          bg-neutral-300 
           form-input
           block
           w-full
@@ -52,7 +52,7 @@ const Input: React.FC<InputProps> = ({
           focus:ring-2
           focus:ring-inset
           focus:ring-slate-100
-          focus:bg-slate-100
+          focus:bg-neutral-100
           sm:text-sm
           sm:leading-6`,
             errors[id] && "focus:ring-red-500",

@@ -6,6 +6,7 @@ import SettingsModal from "./SettingsModal";
 import { useState } from "react";
 import Avatar from "../Avatar";
 import { User } from "@prisma/client";
+import Image from "next/image";
 
 interface DesktopSidebarProps {
   currentUser: User;
@@ -42,6 +43,13 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
       "
       >
         <nav className="mt-4 flex flex-col justify-between">
+          <Image
+            alt="logo"
+            height="40"
+            width="40"
+            className="mx-auto w-auto mb-6"
+            src="/assets/logo.png"
+          />
           <ul role="list" className="flex flex-col items-center space-y-1">
             {routes.map((item) => (
               <DesktopItem

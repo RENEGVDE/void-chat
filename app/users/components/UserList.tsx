@@ -20,7 +20,8 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
         lg:block
         overflow-y-auto 
         border-r 
-        border-gray-100
+        border-neutral-900
+        bg-neutral-900
         block w-full left-0
       "
     >
